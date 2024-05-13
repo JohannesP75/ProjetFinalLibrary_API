@@ -1,0 +1,37 @@
+package org.library_project.api.model;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.sql.Time;
+import java.time.LocalDate;
+import java.util.Date;
+
+@Data
+@Entity
+@Getter
+@Setter
+@Table(name = "loans")
+public class Loan {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "is_returned")
+    private boolean isReturned;
+
+    @Column(name = "date_start")
+    private LocalDate dateStart;
+
+    @Column(name = "date_due")
+    private LocalDate dateDue;
+
+    @ManyToOne
+    @JoinColumn(name = "reader_id", nullable = false)
+    private Reader reader;
+
+    @ManyToOne
+    @JoinColumn(name = "item_id", nullable = false)
+    private Item item;
+}
