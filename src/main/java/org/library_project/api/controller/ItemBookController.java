@@ -3,8 +3,12 @@ package org.library_project.api.controller;
 import org.library_project.api.model.ItemBook;
 import org.library_project.api.service.ItemBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,36 +18,56 @@ public class ItemBookController {
     private ItemBookService service;
 
     @PostMapping("")
-    public ItemBook create(@RequestBody ItemBook obj){
-        return service.save(obj);
+    public ResponseEntity<ItemBook> create(@RequestBody ItemBook obj){
+        try {
+            ItemBook objResponse = service.save(obj);
+
+            return ResponseEntity.ok(objResponse);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping("/{id}")
-    public ItemBook get(@PathVariable("id") final Long id){
-        Optional<ItemBook> obj=service.get(id);
+    public ResponseEntity<ItemBook> get(@PathVariable("id") final Long id){
+        try {
+            Optional<ItemBook> response=service.get(id);
+            HttpStatusCode code=response.isPresent()? HttpStatus.OK:HttpStatus.NOT_FOUND;
 
-        return obj.orElse(null);
+            return new ResponseEntity<>(response.orElse(null), code);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping("")
-    public Iterable<ItemBook> getAll(){
-        return service.getAll();
+    public ResponseEntity<List<ItemBook>> getAll(){
+        try {
+            List<ItemBook> listResponses = (List<ItemBook>) service.getAll();
+
+            return ResponseEntity.ok(listResponses);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @PatchMapping("/{id}")
     public ItemBook update(@PathVariable("id") final Long id, @RequestBody ItemBook body){
+        // TODO
         Optional<ItemBook> o=service.get(id);
-        ItemBook entity=null;
-
-        if(o.isPresent()){
-            entity=o.get();
-        }
+        ItemBook entity=o.isPresent()?o.get():null;
 
         return entity;
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") final Long id){
-        service.delete(id);
+    public ResponseEntity<ItemBook> delete(@PathVariable("id") final Long id){
+        try {
+            service.delete(id);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

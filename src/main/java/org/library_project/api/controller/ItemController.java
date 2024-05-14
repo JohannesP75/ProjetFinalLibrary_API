@@ -3,8 +3,12 @@ package org.library_project.api.controller;
 import org.library_project.api.model.Item;
 import org.library_project.api.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,36 +18,56 @@ public class ItemController {
     private ItemService service;
 
     @PostMapping("")
-    public Item create(@RequestBody Item obj){
-        return service.save(obj);
+    public ResponseEntity<Item> create(@RequestBody Item obj){
+        try {
+            Item objResponse = service.save(obj);
+
+            return ResponseEntity.ok(objResponse);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping("/{id}")
-    public Item get(@PathVariable("id") final Long id){
-        Optional<Item> obj=service.get(id);
+    public ResponseEntity<Item> get(@PathVariable("id") final Long id){
+        try {
+            Optional<Item> response=service.get(id);
+            HttpStatusCode code=response.isPresent()? HttpStatus.OK:HttpStatus.NOT_FOUND;
 
-        return obj.orElse(null);
+            return new ResponseEntity<>(response.orElse(null), code);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping("")
-    public Iterable<Item> getAll(){
-        return service.getAll();
+    public ResponseEntity<List<Item>> getAll(){
+        try {
+            List<Item> listResponses = (List<Item>) service.getAll();
+
+            return ResponseEntity.ok(listResponses);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @PatchMapping("/{id}")
     public Item update(@PathVariable("id") final Long id, @RequestBody Item body){
+        // TODO
         Optional<Item> o=service.get(id);
-        Item entity=null;
-
-        if(o.isPresent()){
-            entity=o.get();
-        }
+        Item entity=o.isPresent()?o.get():null;
 
         return entity;
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") final Long id){
-        service.delete(id);
+    public ResponseEntity<Item> delete(@PathVariable("id") final Long id){
+        try {
+            service.delete(id);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -4,91 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="changement types retour controllers">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ANSCRController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/AuthorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BranchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/DeweyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/GradeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemAudioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemBookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemVideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/LoanController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/PrerogativeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ReaderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/UserRoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/VideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/WorkerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/ANSCR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Audio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Branch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/CollectiveAuthor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Dewey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Document.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/IndividualAuthor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/ItemAudio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/ItemBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/ItemVideo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Loan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Prerogative.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Reader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Worker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ANSCRRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/AuthorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/BranchRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/DeweyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/GradeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ItemAudioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ItemBookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ItemVideoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/LoanRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/PrerogativeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ReaderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/VideoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/WorkerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ANSCRService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/AuthorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/BranchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/DeweyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/GeneralService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/GradeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ItemAudioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ItemBookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ItemVideoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/LoanService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/PrerogativeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ReaderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/UserRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/VideoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/WorkerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="av. changement type retour controllers">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ANSCRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ANSCRController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/DeweyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/DeweyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/GradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/GradeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemAudioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemAudioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemVideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ItemVideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/LoanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/PrerogativeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/PrerogativeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/UserRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/UserRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/WorkerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,7 +53,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2dJRE8YJlLqBNwEZNfc3q6uB76b" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -139,10 +80,19 @@
       <option name="presentableId" value="Default" />
       <updated>1709724084683</updated>
     </task>
+    <task id="LOCAL-00001" summary="av. changement type retour controllers">
+      <created>1715608585884</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715608585884</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changement types retour controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="changement types retour controllers" />
+    <MESSAGE value="av. changement type retour controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="av. changement type retour controllers" />
   </component>
 </project>
