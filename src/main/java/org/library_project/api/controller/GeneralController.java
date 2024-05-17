@@ -4,8 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 import jakarta.persistence.EntityNotFoundException;
-import org.library_project.api.model.ANSCR;
-import org.library_project.api.service.ANSCRService;
+import org.library_project.api.service.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,16 +14,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("anscr")
-public class ANSCRController {
+@RequestMapping("")
+public class GeneralController<TService extends GeneralService, TEntity> {
     @Autowired
-    private ANSCRService service;
+    private TService service;
 
     @PostMapping("")
-    public ResponseEntity<ANSCR> create(@RequestBody ANSCR obj){
+    public ResponseEntity<TEntity> create(@RequestBody TEntity obj){
         try {
-            ANSCR objResponse = service.save(obj);
+            TEntity objResponse = (TEntity) service.save(obj);
 
             return new ResponseEntity<>(objResponse, HttpStatus.CREATED);
         }catch(IllegalArgumentException e){
@@ -35,9 +33,9 @@ public class ANSCRController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ANSCR> get(@PathVariable("id") final Long id){
+    public ResponseEntity<TEntity> get(@PathVariable("id") final Long id){
         try {
-            Optional<ANSCR> response=service.get(id);
+            Optional<TEntity> response=service.get(id);
 
             return new ResponseEntity<>(response.orElse(null), HttpStatus.OK);
         }catch(EntityNotFoundException e) {
@@ -48,25 +46,21 @@ public class ANSCRController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ANSCR>> getAll(){
+    public ResponseEntity<List<TEntity>> getAll(){
         try {
-            return ResponseEntity.ok((List<ANSCR>) service.getAll());
+            return ResponseEntity.ok((List<TEntity>) service.getAll());
         } catch (Exception e){
             throw new RuntimeException(e);
         }
     }
 
     @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ANSCR> update(@PathVariable("id") final Long id, @RequestBody JsonPatch body){
+    public ResponseEntity<TEntity> update(@PathVariable("id") final Long id, @RequestBody JsonPatch body){
         try {
-            return ResponseEntity.ok(service.update(id, body));
+            return (ResponseEntity<TEntity>) ResponseEntity.ok(service.update(id, body));
         }catch(EntityNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }catch(IllegalArgumentException e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }catch(JsonPatchException e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }catch(JsonProcessingException e) {
+        }catch(IllegalArgumentException | JsonProcessingException | JsonPatchException e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         } catch (Exception e){
             throw new RuntimeException(e);
@@ -74,7 +68,7 @@ public class ANSCRController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ANSCR> delete(@PathVariable("id") final Long id){
+    public ResponseEntity<TEntity> delete(@PathVariable("id") final Long id){
         try {
             service.delete(id);
 

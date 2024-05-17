@@ -22,7 +22,7 @@ public class DeweyController {
         try {
             Dewey objResponse = service.save(obj);
 
-            return ResponseEntity.ok(objResponse);
+            return new ResponseEntity<>(objResponse, HttpStatus.CREATED);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
