@@ -14,9 +14,13 @@ import lombok.Setter;
 public class ItemBook extends Item{
     private int numberPages;
 
-    private String isbm;
+    private String isbn;
 
     @ManyToOne
     @JoinColumn(name="book_id", nullable=false)
     private Book book;
+
+    @ManyToOne
+    @JoinColumn(name="format_book_id", nullable = false)
+    private FormatBook formatBook;
 }

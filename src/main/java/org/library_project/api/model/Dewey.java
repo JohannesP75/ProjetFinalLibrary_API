@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.intellij.lang.annotations.Pattern;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class Dewey {
     private Long id;
 
     @NonNull
-    @Column(length = 3)
+    @Pattern("^\\d{3}$")
     private String code;
 
     @NonNull

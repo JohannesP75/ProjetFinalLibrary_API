@@ -7,8 +7,8 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 @Getter
 @DiscriminatorColumn(name="item_type", discriminatorType = DiscriminatorType.INTEGER)

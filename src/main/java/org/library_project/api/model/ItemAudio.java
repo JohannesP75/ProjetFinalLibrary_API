@@ -19,4 +19,8 @@ public class ItemAudio extends Item {
     @ManyToOne
     @JoinColumn(name="audio_id", nullable=false)
     private Audio audio;
+
+    @ManyToOne
+    @JoinColumn(name="format_audio_id", nullable = false)
+    private FormatAudio formatAudio;
 }

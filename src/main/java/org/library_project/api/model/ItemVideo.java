@@ -12,11 +12,24 @@ import lombok.Setter;
 @Table(name = "items_video")
 @DiscriminatorValue("3")
 public class ItemVideo extends Item{
+    /**
+     * Length, in minutes, of the video document
+     */
     private int length;
 
+    /**
+     * International Standard Audiovisual Number
+     */
     private String isan;
 
+    /**
+     * Video
+     */
     @ManyToOne
     @JoinColumn(name="video_id", nullable=false)
     private Video video;
+
+    @ManyToOne
+    @JoinColumn(name="format_video_id", nullable = false)
+    private FormatVideo formatVideo;
 }

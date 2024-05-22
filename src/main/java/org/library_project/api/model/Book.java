@@ -8,6 +8,9 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * A book is a medium for recording information in the form of writing
+ */
 @Data
 @Entity
 @Getter
