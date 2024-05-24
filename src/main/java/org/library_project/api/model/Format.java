@@ -2,12 +2,16 @@ package org.library_project.api.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Format of the item present in the library
  */
 @Data
-@MappedSuperclass
+@Setter
+@Getter
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 abstract public class Format {
     /**

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import org.intellij.lang.annotations.Pattern;
+import org.intellij.lang.annotations.Subst;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,4 +30,12 @@ public class Dewey {
 
     @OneToMany(mappedBy="dewey")
     private Set<Book> books = new HashSet<>();
+
+    public Dewey(@Subst("") @NonNull String code, @NonNull String name) {
+        this.code = code;
+        this.name = name;
+    }
+
+    public Dewey() {
+    }
 }

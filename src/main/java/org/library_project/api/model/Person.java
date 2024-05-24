@@ -1,12 +1,20 @@
 package org.library_project.api.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 import org.intellij.lang.annotations.Pattern;
 
-@MappedSuperclass
+@Entity
+@Getter
+@Setter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id;
+
     @NonNull
     private String surname;
 
@@ -25,7 +33,4 @@ public abstract class Person {
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private UserRole userRole;
-
-    protected Person() {
-    }
 }

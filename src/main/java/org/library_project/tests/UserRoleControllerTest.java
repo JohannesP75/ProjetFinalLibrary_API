@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public class UserRoleControllerTest {
     @Test
     public void testCreate(){
-        Assertions.assertEquals(new UserRoleController().create(new UserRole()).getStatusCode(), HttpStatus.OK);
+        Assertions.assertEquals(new UserRoleController().create(new UserRole("test_UserRole")).getStatusCode(), HttpStatus.OK);
     }
 
     @Test

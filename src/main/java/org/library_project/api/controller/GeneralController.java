@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("")
 public class GeneralController<TService extends GeneralService, TEntity> {
@@ -22,9 +21,7 @@ public class GeneralController<TService extends GeneralService, TEntity> {
     @PostMapping("")
     public ResponseEntity<TEntity> create(@RequestBody TEntity obj){
         try {
-            TEntity objResponse = (TEntity) service.save(obj);
-
-            return new ResponseEntity<>(objResponse, HttpStatus.CREATED);
+            return new ResponseEntity<>((TEntity) service.save(obj), HttpStatus.CREATED);
         }catch(IllegalArgumentException e){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }catch (Exception e) {
@@ -35,9 +32,7 @@ public class GeneralController<TService extends GeneralService, TEntity> {
     @GetMapping("/{id}")
     public ResponseEntity<TEntity> get(@PathVariable("id") final Long id){
         try {
-            Optional<TEntity> response=service.get(id);
-
-            return new ResponseEntity<>(response.orElse(null), HttpStatus.OK);
+            return new ResponseEntity<TEntity>((TEntity) service.get(id).orElse(null), HttpStatus.OK);
         }catch(EntityNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }catch(Exception e){

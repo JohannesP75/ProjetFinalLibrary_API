@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public class PublisherControllerTest {
     @Test
     public void testCreate(){
-        Assertions.assertEquals(new PublisherController().create(new Publisher()).getStatusCode(), HttpStatus.OK);
+        Assertions.assertEquals(new PublisherController().create(new Publisher("test_Publisher")).getStatusCode(), HttpStatus.OK);
     }
 
     @Test

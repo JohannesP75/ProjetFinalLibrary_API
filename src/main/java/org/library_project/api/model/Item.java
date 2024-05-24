@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
-@MappedSuperclass
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 @Getter
@@ -30,4 +30,8 @@ abstract public class Item {
 
     @OneToMany(mappedBy = "item")
     private Set<Loan> loans=new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="publisher_id", nullable=false)
+    private Publisher publisher;
 }

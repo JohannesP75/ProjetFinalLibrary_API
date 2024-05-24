@@ -12,14 +12,26 @@ import lombok.Setter;
 @Table(name = "items_book")
 @DiscriminatorValue("1")
 public class ItemBook extends Item{
+    /**
+     * Number of pages
+     */
     private int numberPages;
 
+    /**
+     *International Standard Book Number
+     */
     private String isbn;
 
+    /**
+     * Book of which this item is a sample
+     */
     @ManyToOne
     @JoinColumn(name="book_id", nullable=false)
     private Book book;
 
+    /**
+     * Format of the book
+     */
     @ManyToOne
     @JoinColumn(name="format_book_id", nullable = false)
     private FormatBook formatBook;

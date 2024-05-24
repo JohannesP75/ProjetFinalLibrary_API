@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public class DeweyControllerTest {
     @Test
     public void testCreate(){
-        Assertions.assertEquals(new DeweyController().create(new Dewey("000", "test_dewey")).getStatusCode(), HttpStatus.OK);
+        Assertions.assertEquals(new DeweyController().create(new Dewey("000", "test_Dewey")).getStatusCode(), HttpStatus.OK);
     }
 
     @Test

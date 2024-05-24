@@ -11,8 +11,7 @@ import java.util.Set;
 /**
  * Abstract class representing an author
  */
-@MappedSuperclass
-@Table(name = "authors")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter
 @Setter

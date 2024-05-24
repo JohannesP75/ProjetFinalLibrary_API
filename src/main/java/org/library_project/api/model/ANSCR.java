@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.intellij.lang.annotations.Pattern;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +30,7 @@ public class ANSCR {
     /**
      * ANSCR code
      */
+    @Pattern("^[A-Z]{1,2}$")
     private String code;
 
     /**

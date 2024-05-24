@@ -11,8 +11,7 @@ import java.util.Set;
 @Data
 @Setter
 @Getter
-@MappedSuperclass
-@Table(name = "documents")
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 abstract public class Document {
     @Id
@@ -25,8 +24,4 @@ abstract public class Document {
 
     @ManyToMany(mappedBy = "documents")
     private Set<Author> authors = new HashSet<>();
-
-    @ManyToOne
-    @JoinColumn(name="publisher_id", nullable=false)
-    private Publisher publisher;
 }

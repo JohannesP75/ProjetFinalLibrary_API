@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public class PrerogativeControllerTest {
     @Test
     public void testCreate(){
-        Assertions.assertEquals(new PrerogativeController().create(new Prerogative()).getStatusCode(), HttpStatus.OK);
+        Assertions.assertEquals(new PrerogativeController().create(new Prerogative("test_Prerogative")).getStatusCode(), HttpStatus.OK);
     }
 
     @Test

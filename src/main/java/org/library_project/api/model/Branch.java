@@ -27,4 +27,11 @@ public class Branch {
 
     @OneToMany(mappedBy = "branch")
     private Set<Worker> workers = new HashSet<>();
+
+    public Branch() {
+    }
+
+    public Branch(@NonNull String name) {
+        this.name = name;
+    }
 }
