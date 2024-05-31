@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 abstract public class GeneralService <TRepository extends CrudRepository<TEntity, Long>, TEntity> {
     @Autowired
@@ -21,18 +19,47 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
     @Autowired
     private ObjectMapper objectMapper;
 
+    public Long count(){
+        return repository.count();
+    }
+
+    /**
+     * Creates an instance and saves it on the database
+     * @param entry The instance to create
+     * @return Saved instance
+     */
+
     public TEntity save(TEntity entry){
         return repository.save(entry);
     }
 
-    public Optional<TEntity> get(final Long id){
-        return (Optional<TEntity>) repository.findById(id).orElseThrow(EntityNotFoundException::new);
+    /**
+     * Retrieves an instance of TEntity from the database
+     * @param id ID of the instance to retrieve
+     * @return The retrieved instance
+     */
+    public TEntity get(final Long id){
+        //Optional<TEntity> S=repository.findById(id).orElseThrow(EntityNotFoundException::new);
+
+        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
+    /**
+     * Retrieves all the instances of TEntity from the database
+     * @return The list of all the instances
+     */
     public Iterable<TEntity> getAll(){
         return repository.findAll();
     }
 
+    /**
+     * Update an instance of TEntity
+     * @param id ID of the instance to be updated
+     * @param patch Modifications to the instance
+     * @return An updated instance
+     * @throws JsonProcessingException Issues during the serialisation of the patched instance
+     * @throws JsonPatchException Issues during the patching of the instance
+     */
     public TEntity update(Long id, @NotNull JsonPatch patch) throws JsonProcessingException, JsonPatchException {
         // TODO: Trouver un moyen d'améliorer cette méthode, si possible
         TEntity entity=repository.findById(id).orElseThrow(EntityNotFoundException::new);
@@ -41,6 +68,10 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
         return repository.save(objectMapper.treeToValue(patched, (Class<TEntity>) null));
     }
 
+    /**
+     * Delete an instance of TEntity
+     * @param id ID of the instance to delete from the database
+     */
     public void delete(final Long id){
         repository.deleteById(id);
     }

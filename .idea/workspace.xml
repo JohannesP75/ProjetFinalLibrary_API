@@ -7,9 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="Version HTTP API">
+    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="HTTPS implémenté">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/CollectiveAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/CollectiveAuthor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/GeneralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/GeneralService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/tests/AuthorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/tests/AuthorControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="implement_HTTPS" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -54,18 +62,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jpoua\IdeaProjects\ProjetFinalLibrary_API\src\main\resources\keystore" />
@@ -91,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -168,6 +177,7 @@
     <MESSAGE value="ajout tests unitaires" />
     <MESSAGE value="ajout tests unitaires (2)" />
     <MESSAGE value="Version HTTP API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version HTTP API" />
+    <MESSAGE value="HTTPS implémenté" />
+    <option name="LAST_COMMIT_MESSAGE" value="HTTPS implémenté" />
   </component>
 </project>

@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 
 public class AuthorControllerTest {
     @Test
+    public void testCount(){
+        Assertions.assertEquals(new AuthorController().count().getStatusCode(), HttpStatus.OK);
+    }
+    @Test
     public void testCreateCollective(){
         Assertions.assertEquals(new AuthorController().create(new CollectiveAuthor()).getStatusCode(), HttpStatus.OK);
     }

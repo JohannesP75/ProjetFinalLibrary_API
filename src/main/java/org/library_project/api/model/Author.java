@@ -1,5 +1,7 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NonNull;
@@ -16,6 +18,13 @@ import java.util.Set;
 @Getter
 @Setter
 @DiscriminatorColumn(name="author_type", discriminatorType = DiscriminatorType.INTEGER)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "author_type")
+@JsonSubTypes(
+        {
+                @JsonSubTypes.Type(value = IndividualAuthor.class, name = "0"),
+                @JsonSubTypes.Type(value = CollectiveAuthor.class, name = "1")
+        }
+)
 public abstract class Author {
     /**
      * ID of author

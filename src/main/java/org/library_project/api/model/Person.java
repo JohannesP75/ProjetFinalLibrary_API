@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NonNull;
@@ -10,6 +11,7 @@ import org.intellij.lang.annotations.Pattern;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@JsonIgnoreProperties({"password"})
 public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -18,10 +20,8 @@ public abstract class Person {
     @NonNull
     private String surname;
 
-    @Column(name = "given_name")
     private String givenName;
 
-    @Column
     @NonNull
     private String password;
 
