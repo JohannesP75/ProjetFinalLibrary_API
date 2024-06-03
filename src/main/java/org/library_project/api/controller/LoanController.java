@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("items_book")
+@RequestMapping("loans")
 public class LoanController extends GeneralController<LoanService, Loan>{
 
 }

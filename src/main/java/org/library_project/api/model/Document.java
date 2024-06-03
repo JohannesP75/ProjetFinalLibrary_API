@@ -10,6 +10,9 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Document present in the library
+ */
 @Data
 @Setter
 @Getter

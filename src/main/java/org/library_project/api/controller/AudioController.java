@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("audio")
+@RequestMapping("audios")
 public class AudioController extends GeneralController<AudioService, Audio> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemAudio>> getItems(@PathVariable("id") final Long id){
