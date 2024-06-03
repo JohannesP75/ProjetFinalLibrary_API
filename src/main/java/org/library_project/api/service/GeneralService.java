@@ -17,7 +17,7 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
     protected TRepository repository;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper;
 
     public Long count(){
         return repository.count();

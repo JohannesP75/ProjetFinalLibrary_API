@@ -1,5 +1,7 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -27,9 +29,11 @@ public class Loan {
 
     @ManyToOne
     @JoinColumn(name = "reader_id", nullable = false)
+    @JsonBackReference(value = "reader-loans")
     private Reader reader;
 
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
+    @JsonManagedReference(value = "loan-item")
     private Item item;
 }

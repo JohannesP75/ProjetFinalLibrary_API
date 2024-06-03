@@ -1,5 +1,7 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -13,6 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "prerogatives")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Prerogative {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("")
 public class GeneralController<TService extends GeneralService, TEntity> {
     @Autowired
-    private TService service;
+    protected TService service;
 
     /**
      * Returns the number of instances of TENtity

@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Dewey {
     private String name;
 
     @OneToMany(mappedBy="dewey")
+    @JsonBackReference(value = "book-dewey")
     private Set<Book> books = new HashSet<>();
 
     public Dewey(@Subst("") @NonNull String code, @NonNull String name) {

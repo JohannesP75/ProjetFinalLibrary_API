@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class ItemBook extends Item{
      */
     @ManyToOne
     @JoinColumn(name="book_id", nullable=false)
+    @JsonManagedReference(value = "book-items")
     private Book book;
 
     /**
@@ -34,5 +36,6 @@ public class ItemBook extends Item{
      */
     @ManyToOne
     @JoinColumn(name="format_book_id", nullable = false)
+    @JsonManagedReference(value = "formatbook-itemsbook")
     private FormatBook formatBook;
 }

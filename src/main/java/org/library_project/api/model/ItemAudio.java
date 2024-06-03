@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class ItemAudio extends Item {
      */
     @ManyToOne
     @JoinColumn(name="audio_id", nullable=false)
+    @JsonManagedReference(value = "audio-items")
     private Audio audio;
 
     /**
@@ -34,5 +36,6 @@ public class ItemAudio extends Item {
      */
     @ManyToOne
     @JoinColumn(name="format_audio_id", nullable = false)
+    @JsonManagedReference(value = "formataudio-itemsaudio")
     private FormatAudio formatAudio;
 }

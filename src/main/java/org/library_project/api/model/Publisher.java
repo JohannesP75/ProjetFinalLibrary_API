@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class Publisher {
     private String name;
 
     @OneToMany(mappedBy = "publisher")
+    @JsonBackReference(value = "item-publisher")
     private Set<Item> items=new HashSet<>();
 
     public Publisher(@NonNull String name) {

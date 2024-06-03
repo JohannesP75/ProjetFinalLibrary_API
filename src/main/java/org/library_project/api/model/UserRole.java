@@ -1,5 +1,8 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -13,6 +16,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Table(name = "user_roles")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +28,10 @@ public class UserRole {
 
     @ManyToMany(mappedBy = "userRoles")
     private Set<Prerogative> prerogatives;
+
+    @OneToMany(mappedBy="userRole")
+    @JsonManagedReference(value = "person-userrole")
+    private Set<Person> persons;
 
     public UserRole() {
     }

@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -15,5 +16,6 @@ import java.util.Set;
 @Table(name="formats_book")
 public class FormatBook extends Format{
     @OneToMany(mappedBy = "formatBook")
-    private Set<ItemBook> items_book;
+    @JsonBackReference(value = "formatbook-itemsbook")
+    private Set<ItemBook> itemsBook;
 }

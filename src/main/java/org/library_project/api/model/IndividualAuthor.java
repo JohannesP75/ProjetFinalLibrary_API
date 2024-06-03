@@ -13,9 +13,9 @@ import lombok.Setter;
 @Getter
 @DiscriminatorValue("0")
 public class IndividualAuthor extends Author{
-    @Column(name = "given_name")
+    @Column
     private String givenName;
 
-    @Column(name = "year_death")
+    @Column
     private int yearDeath;
 }

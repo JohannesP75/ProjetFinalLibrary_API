@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -23,9 +24,11 @@ public class Branch {
     private String name;
 
     @OneToMany(mappedBy = "branch")
+    @JsonBackReference(value = "branch-items")
     private Set<Item> items = new HashSet<>();
 
     @OneToMany(mappedBy = "branch")
+    @JsonBackReference(value = "workers")
     private Set<Worker> workers = new HashSet<>();
 
     public Branch() {

@@ -1,5 +1,7 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +18,25 @@ abstract public class Item {
     @Id
     private Long id;
 
-    @Column(name = "is_loanable")
+    @Column
     private Boolean isLoanable;
 
-    @Column(name = "is_available")
+    @Column
     private Boolean isAvailable;
 
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "branch_id", nullable = false)
+    @JsonManagedReference(value = "branch-items")
     private Branch branch;
 
     @OneToMany(mappedBy = "item")
+    @JsonBackReference(value = "loan-item")
     private Set<Loan> loans=new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name="publisher_id", nullable=false)
+    @JsonManagedReference(value = "item-publisher")
     private Publisher publisher;
 }

@@ -1,10 +1,11 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.intellij.lang.annotations.Pattern;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class ANSCR {
     /**
      * ANSCR code
      */
-    @Pattern("^[A-Z]{1,2}$")
+    @Pattern(regexp = "^[A-Z]{1,2}$", message = "ANSCR call number should be a string of uppercase letters of a length between 1 and 2")
     private String code;
 
     /**
@@ -42,5 +43,6 @@ public class ANSCR {
      * List of video documents with this number call
      */
     @OneToMany(mappedBy="anscr")
+    @JsonBackReference(value = "anscr-audios")
     private Set<Audio> audios = new HashSet<>();
 }

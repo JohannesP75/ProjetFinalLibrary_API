@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -13,5 +14,6 @@ import java.util.Set;
 @Entity
 public class FormatAudio extends Format {
     @OneToMany(mappedBy = "formatAudio")
-    private Set<ItemAudio> items_audio;
+    @JsonBackReference(value = "formataudio-itemsaudio")
+    private Set<ItemAudio> itemsAudio;
 }

@@ -1,7 +1,9 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NonNull;
@@ -25,6 +27,7 @@ import java.util.Set;
                 @JsonSubTypes.Type(value = CollectiveAuthor.class, name = "1")
         }
 )
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public abstract class Author {
     /**
      * ID of author

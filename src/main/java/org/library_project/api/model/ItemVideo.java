@@ -1,5 +1,6 @@
 package org.library_project.api.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -27,9 +28,11 @@ public class ItemVideo extends Item{
      */
     @ManyToOne
     @JoinColumn(name="video_id", nullable=false)
+    @JsonManagedReference(value = "itemvideo-video")
     private Video video;
 
     @ManyToOne
     @JoinColumn(name="format_video_id", nullable = false)
+    @JsonManagedReference(value = "formatvideo-itemsvideo")
     private FormatVideo formatVideo;
 }
