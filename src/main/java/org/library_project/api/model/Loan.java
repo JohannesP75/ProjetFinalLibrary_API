@@ -1,7 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table(name = "loans")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +30,9 @@ public class Loan {
 
     @ManyToOne
     @JoinColumn(name = "reader_id", nullable = false)
-    @JsonBackReference(value = "reader-loans")
     private Reader reader;
 
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
-    @JsonManagedReference(value = "loan-item")
     private Item item;
 }

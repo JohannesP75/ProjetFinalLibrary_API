@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Data
 @Table(name = "items_audio")
 @DiscriminatorValue("2")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ItemAudio extends Item {
     /**
      * Length of the recording, in seconds
@@ -28,7 +30,6 @@ public class ItemAudio extends Item {
      */
     @ManyToOne
     @JoinColumn(name="audio_id", nullable=false)
-    @JsonManagedReference(value = "audio-items")
     private Audio audio;
 
     /**
@@ -36,6 +37,5 @@ public class ItemAudio extends Item {
      */
     @ManyToOne
     @JoinColumn(name="format_audio_id", nullable = false)
-    @JsonManagedReference(value = "formataudio-itemsaudio")
     private FormatAudio formatAudio;
 }

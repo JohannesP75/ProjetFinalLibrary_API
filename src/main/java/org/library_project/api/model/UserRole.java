@@ -1,7 +1,6 @@
 package org.library_project.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -30,7 +29,6 @@ public class UserRole {
     private Set<Prerogative> prerogatives;
 
     @OneToMany(mappedBy="userRole")
-    @JsonManagedReference(value = "person-userrole")
     private Set<Person> persons;
 
     public UserRole() {

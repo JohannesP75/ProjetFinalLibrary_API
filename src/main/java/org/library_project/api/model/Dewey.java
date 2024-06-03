@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "dewey")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Dewey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +32,6 @@ public class Dewey {
     private String name;
 
     @OneToMany(mappedBy="dewey")
-    @JsonBackReference(value = "book-dewey")
     private Set<Book> books = new HashSet<>();
 
     public Dewey(@Subst("") @NonNull String code, @NonNull String name) {

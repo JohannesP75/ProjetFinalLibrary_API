@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Data
 @Table(name = "items_book")
 @DiscriminatorValue("1")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ItemBook extends Item{
     /**
      * Number of pages
@@ -28,7 +30,6 @@ public class ItemBook extends Item{
      */
     @ManyToOne
     @JoinColumn(name="book_id", nullable=false)
-    @JsonManagedReference(value = "book-items")
     private Book book;
 
     /**
@@ -36,6 +37,5 @@ public class ItemBook extends Item{
      */
     @ManyToOne
     @JoinColumn(name="format_book_id", nullable = false)
-    @JsonManagedReference(value = "formatbook-itemsbook")
     private FormatBook formatBook;
 }

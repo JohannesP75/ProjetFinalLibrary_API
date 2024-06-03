@@ -1,7 +1,8 @@
 package org.library_project.api.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name="books")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Book extends Document {
     @OneToMany(mappedBy = "book")
     @JsonBackReference(value = "book-items")
@@ -25,6 +27,5 @@ public class Book extends Document {
 
     @ManyToOne
     @JoinColumn(name = "dewey_id", nullable = false)
-    @JsonManagedReference(value = "book-dewey")
     private Dewey dewey;
 }

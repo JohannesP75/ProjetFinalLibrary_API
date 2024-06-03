@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -14,8 +15,8 @@ import java.util.Set;
 @Setter
 @Getter
 @Table(name = "readers")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Reader extends Person {
     @OneToMany(mappedBy = "reader")
-    @JsonManagedReference(value = "reader-loans")
     private Set<Loan> loans = new HashSet<>();
 }

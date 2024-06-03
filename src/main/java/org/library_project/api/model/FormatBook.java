@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -14,8 +15,8 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name="formats_book")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class FormatBook extends Format{
     @OneToMany(mappedBy = "formatBook")
-    @JsonBackReference(value = "formatbook-itemsbook")
     private Set<ItemBook> itemsBook;
 }

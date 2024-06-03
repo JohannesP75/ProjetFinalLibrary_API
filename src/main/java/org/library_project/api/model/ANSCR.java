@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -20,6 +21,7 @@ import java.util.Set;
 @Data
 @Getter
 @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ANSCR {
     /**
      * ID of the ANSCR code
@@ -43,6 +45,5 @@ public class ANSCR {
      * List of video documents with this number call
      */
     @OneToMany(mappedBy="anscr")
-    @JsonBackReference(value = "anscr-audios")
     private Set<Audio> audios = new HashSet<>();
 }

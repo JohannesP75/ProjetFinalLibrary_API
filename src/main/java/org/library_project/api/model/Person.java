@@ -1,7 +1,8 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
@@ -17,6 +18,7 @@ import java.time.temporal.ChronoUnit;
 @Setter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @JsonIgnoreProperties({"password"})
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public abstract class Person {
     /**
      * ID of Person
@@ -64,7 +66,6 @@ public abstract class Person {
      */
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
-    @JsonBackReference(value = "person-userrole")
     private UserRole userRole;
 
     /**

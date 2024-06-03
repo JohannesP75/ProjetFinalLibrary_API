@@ -1,8 +1,6 @@
 package org.library_project.api.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -37,7 +35,6 @@ public class Audio extends Document {
      * List of samples of this audio entry
      */
     @OneToMany(mappedBy = "audio")
-    @JsonBackReference(value = "audio-items")
     private Set<ItemAudio> items=new HashSet<>();
 
     /**
@@ -45,6 +42,5 @@ public class Audio extends Document {
      */
     @ManyToOne
     @JoinColumn(name = "anscr_id", nullable = false)
-    @JsonManagedReference(value = "anscr-audios")
     private ANSCR anscr;
 }
