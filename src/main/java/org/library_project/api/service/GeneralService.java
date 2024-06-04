@@ -39,8 +39,6 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
      * @return The retrieved instance
      */
     public TEntity get(final Long id){
-        //Optional<TEntity> S=repository.findById(id).orElseThrow(EntityNotFoundException::new);
-
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 

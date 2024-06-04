@@ -22,4 +22,8 @@ public class Worker extends Person{
     @ManyToOne
     @JoinColumn(name = "grade_id", nullable = false)
     private Grade grade;
+
+    @ManyToOne
+    @JoinColumn(name = "worker_role_id", nullable = false)
+    private WorkerRole role;
 }

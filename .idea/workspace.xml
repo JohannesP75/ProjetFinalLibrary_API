@@ -7,11 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="suppression des JsonBackReference et JsonManagedReference">
+    <list default="true" id="b3fccceb-011f-4d29-b06c-84d3113e5023" name="Changes" comment="corr. erreurs - situation avant dedoublement UserRole">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/ReaderRoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/ReaderRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/WorkerRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/ReaderRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/ReaderRoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/AudioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/AudioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/LoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/UserRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/controller/WorkerRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/repository/WorkerRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/UserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/api/service/WorkerRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/library_project/tests/UserRoleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/library_project/tests/WorkerRoleControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717431974186</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="corr. erreurs - situation avant dedoublement UserRole">
+      <created>1717432533409</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717432533410</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +215,7 @@
     <MESSAGE value="av. ajout gestion recursion infinie" />
     <MESSAGE value="av. suppression des JsonBackReference et JsonManagedReference" />
     <MESSAGE value="suppression des JsonBackReference et JsonManagedReference" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppression des JsonBackReference et JsonManagedReference" />
+    <MESSAGE value="corr. erreurs - situation avant dedoublement UserRole" />
+    <option name="LAST_COMMIT_MESSAGE" value="corr. erreurs - situation avant dedoublement UserRole" />
   </component>
 </project>
