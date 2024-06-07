@@ -7,7 +7,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.library_project.api.service.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -83,13 +82,16 @@ public class GeneralController<TService extends GeneralService, TEntity> {
      * @param body Modifications to the instance
      * @return The updated instance
      */
-    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = "/{id}", consumes = "application/json-patch+json")
     public ResponseEntity<TEntity> update(@PathVariable("id") final Long id, @RequestBody JsonPatch body){
         try {
+            System.out.println(body.toString());
+
             return (ResponseEntity<TEntity>) ResponseEntity.ok(service.update(id, body));
         }catch(EntityNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }catch(IllegalArgumentException | JsonProcessingException | JsonPatchException e) {
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         } catch (Exception e){
             throw new RuntimeException(e);

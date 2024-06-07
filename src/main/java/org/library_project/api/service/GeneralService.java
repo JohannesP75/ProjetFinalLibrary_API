@@ -60,10 +60,16 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
      */
     public TEntity update(Long id, @NotNull JsonPatch patch) throws JsonProcessingException, JsonPatchException {
         // TODO: Trouver un moyen d'améliorer cette méthode, si possible
+        // Le moyen, ce serait de faire en sorte que le 2d argument de objectMapper.treeToValue
+        // soit la classe TEntity pour éviter les erreurs d epointeur nul
+
+        System.out.println(patch.toString());
         TEntity entity=repository.findById(id).orElseThrow(EntityNotFoundException::new);
         JsonNode patched=patch.apply(objectMapper.convertValue(entity, JsonNode.class));
 
-        return repository.save(objectMapper.treeToValue(patched, (Class<TEntity>) null));
+        System.out.println(patched.toString());
+
+        return repository.save(objectMapper.treeToValue(patched, (Class<TEntity>)(null) ));
     }
 
     /**
