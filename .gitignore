@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/resources/keystore/privateJWT.pem
+/src/main/resources/keystore/publicJWT.pem
+/src/main/resources/keystore/library_API.p12

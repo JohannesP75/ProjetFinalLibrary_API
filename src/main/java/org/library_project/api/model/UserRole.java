@@ -10,8 +10,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
-import java.util.Set;
-
 @Data
 @Entity
 @Setter
@@ -25,22 +23,34 @@ import java.util.Set;
                 @JsonSubTypes.Type(value = ReaderRole.class, name = "READ")
         }
 )
-abstract public class UserRole {
+abstract public class UserRole implements IRole {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
+    /**
+     * Name of the role
+     */
     @NonNull
-    private String name;
-    private String description;
+    protected String name;
 
-    @ManyToMany(mappedBy = "userRoles")
-    private Set<Prerogative> prerogatives;
+    /**
+     * Description of the role
+     */
+    protected String description;
+
+    /*@ManyToMany(mappedBy = "userRoles")
+    private Set<Prerogative> prerogatives;*/
 
     public UserRole() {
     }
 
     public UserRole(@NonNull String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getFullName() {
+        return null;
     }
 }

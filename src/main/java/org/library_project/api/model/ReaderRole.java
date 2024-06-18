@@ -21,6 +21,16 @@ import java.util.Set;
 @DiscriminatorValue("1")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class ReaderRole extends UserRole {
+    @Override
+    public String getFullName() {
+        return "ROLE_READER_"+name;
+    }
+
     @OneToMany(mappedBy="role")
     private Set<Reader> readers;
+
+    /**
+     * Indicates whether this role can borrow items
+     */
+    private boolean borrowItems;
 }

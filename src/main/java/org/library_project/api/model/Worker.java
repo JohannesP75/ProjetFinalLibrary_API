@@ -15,6 +15,11 @@ import lombok.Setter;
 @Table(name = "workers")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Worker extends Person{
+    @Override
+    public String getUsername() {
+        return givenName+"."+surname+"@WORKER."+id;
+    }
+
     @ManyToOne
     @JoinColumn(name = "branch_id", nullable = false)
     private Branch branch;

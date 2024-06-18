@@ -12,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-abstract public class GeneralService <TRepository extends CrudRepository<TEntity, Long>, TEntity> {
+public abstract class GeneralService <TRepository extends CrudRepository<TEntity, Long>, TEntity> {
     @Autowired
     protected TRepository repository;
 
@@ -63,11 +63,11 @@ abstract public class GeneralService <TRepository extends CrudRepository<TEntity
         // Le moyen, ce serait de faire en sorte que le 2d argument de objectMapper.treeToValue
         // soit la classe TEntity pour éviter les erreurs d epointeur nul
 
-        System.out.println(patch.toString());
+        //System.out.println(patch.toString());
         TEntity entity=repository.findById(id).orElseThrow(EntityNotFoundException::new);
         JsonNode patched=patch.apply(objectMapper.convertValue(entity, JsonNode.class));
 
-        System.out.println(patched.toString());
+        //System.out.println(patched.toString());
 
         return repository.save(objectMapper.treeToValue(patched, (Class<TEntity>)(null) ));
     }

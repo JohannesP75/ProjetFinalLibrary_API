@@ -41,7 +41,7 @@ public class GeneralController<TService extends GeneralService, TEntity> {
         try {
             return new ResponseEntity<>((TEntity) service.save(obj), HttpStatus.CREATED);
         }catch(IllegalArgumentException e){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(obj, HttpStatus.BAD_REQUEST);
         }catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -85,13 +85,10 @@ public class GeneralController<TService extends GeneralService, TEntity> {
     @PatchMapping(value = "/{id}", consumes = "application/json-patch+json")
     public ResponseEntity<TEntity> update(@PathVariable("id") final Long id, @RequestBody JsonPatch body){
         try {
-            System.out.println(body.toString());
-
             return (ResponseEntity<TEntity>) ResponseEntity.ok(service.update(id, body));
         }catch(EntityNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }catch(IllegalArgumentException | JsonProcessingException | JsonPatchException e) {
-            System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         } catch (Exception e){
             throw new RuntimeException(e);

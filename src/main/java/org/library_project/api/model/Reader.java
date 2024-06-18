@@ -15,6 +15,11 @@ import java.util.Set;
 @Table(name = "readers")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 public class Reader extends Person {
+    @Override
+    public String getUsername() {
+        return givenName+"."+surname+"@READER."+id;
+    }
+
     @OneToMany(mappedBy = "reader")
     private Set<Loan> loans = new HashSet<>();
 
