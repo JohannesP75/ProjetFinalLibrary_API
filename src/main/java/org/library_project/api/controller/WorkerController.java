@@ -12,19 +12,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("workers")
-public class WorkerController extends GeneralController<WorkerService, Worker>{
+public class WorkerController extends AbstractController<WorkerService, Worker> {
     @GetMapping("profile")
-    public ResponseEntity<Worker> profile(@RequestHeader(HttpHeaders.AUTHORIZATION) Jwt jwt){
+    public ResponseEntity<Worker> getProfile(@RequestHeader(HttpHeaders.AUTHORIZATION) Jwt jwt){
         try {
-            String username=jwt.getSubject();
-            List<String> tokens = List.of(username.split("@"));
-            tokens=List.of(tokens.get(1).split("\\."));
-
-            return ResponseEntity.ok(service.get(Long.parseLong(tokens.get(1))));
+            return ResponseEntity.ok(service.get(extractIdFromJWT(jwt)));
         }catch(EntityNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }catch(Exception e){

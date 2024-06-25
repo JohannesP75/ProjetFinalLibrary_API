@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("audios")
-public class AudioController extends GeneralController<AudioService, Audio> {
+public class AudioController extends AbstractController<AudioService, Audio> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemAudio>> getItems(@PathVariable("id") final Long id){
         try{

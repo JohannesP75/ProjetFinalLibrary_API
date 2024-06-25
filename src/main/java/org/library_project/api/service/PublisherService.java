@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class PublisherService extends GeneralService<PublisherRepository, Publisher>{
+public class PublisherService extends AbstractService<PublisherRepository, Publisher> {
     public Iterable<Item> getItems(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getItems();
     }

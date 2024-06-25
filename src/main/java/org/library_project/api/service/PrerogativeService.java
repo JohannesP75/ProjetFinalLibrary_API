@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class PrerogativeService extends GeneralService<PrerogativeRepository, Prerogative>{
+public class PrerogativeService extends AbstractService<PrerogativeRepository, Prerogative> {
     public Iterable<UserRole> getUserRoles(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getUserRoles();
     }

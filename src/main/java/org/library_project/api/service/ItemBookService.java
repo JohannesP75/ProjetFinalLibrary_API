@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ItemBookService extends GeneralService<ItemBookRepository, ItemBook> {
+public class ItemBookService extends AbstractService<ItemBookRepository, ItemBook> {
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("books")
-public class BookController extends GeneralController<BookService, Book>{
+public class BookController extends AbstractController<BookService, Book> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemBook>> getItems(@PathVariable("id") final Long id){
         try{

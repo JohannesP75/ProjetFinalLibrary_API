@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("items")
-public class ItemController extends GeneralController<ItemService, Item>{
+public class ItemController extends AbstractController<ItemService, Item> {
 
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("video_items")
-public class ItemVideoController extends GeneralController<ItemVideoService, ItemVideo>{
+@RequestMapping("video-items")
+public class ItemVideoController extends AbstractController<ItemVideoService, ItemVideo> {
 
 }

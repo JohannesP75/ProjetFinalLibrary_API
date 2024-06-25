@@ -16,16 +16,16 @@ import lombok.Setter;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
-abstract public class Format {
+public abstract class Format {
     /**
      * ID of the format
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     /**
      * Name of the format
      */
-    private String name;
+    protected String name;
 }

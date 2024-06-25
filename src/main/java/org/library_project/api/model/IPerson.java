@@ -12,4 +12,10 @@ public interface IPerson {
      * @return The age of Person
      */
     public Long calculateAge();
+
+    /**
+     * Return all the authorities held by a person
+     * @return List of the name of the authorities held
+     */
+    public String[] getAllAuthorities();
 }

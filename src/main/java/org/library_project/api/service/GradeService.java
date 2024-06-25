@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class GradeService extends GeneralService<GradeRepository, Grade> {
+public class GradeService extends AbstractService<GradeRepository, Grade> {
     public Iterable<Worker> getWorkers(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getWorkers();
     }

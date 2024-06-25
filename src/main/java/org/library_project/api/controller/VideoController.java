@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("videos")
-public class VideoController extends GeneralController<VideoService, Video>{
+public class VideoController extends AbstractController<VideoService, Video> {
     @GetMapping("/{id}/authors")
     public ResponseEntity<Iterable<Author>> getAuthors(@PathVariable("id") final Long id){
         try{

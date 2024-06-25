@@ -19,15 +19,15 @@ import java.util.Set;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
-abstract public class Document {
+public abstract class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
-    private String title;
+    protected String title;
 
-    private String description;
+    protected String description;
 
     @ManyToMany(mappedBy = "documents")
-    private Set<Author> authors = new HashSet<>();
+    protected Set<Author> authors = new HashSet<>();
 }

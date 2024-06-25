@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ReaderService extends GeneralService<ReaderRepository, Reader> {
+public class ReaderService extends AbstractService<ReaderRepository, Reader> {
     @Override
     public Reader save(Reader entry) {
-        entry.setPassword(SecurityConfig.encoder().encode(entry.getPassword()));
+        entry.setPassword(SecurityConfig.passwordEncoder().encode(entry.getPassword()));
 
         return super.save(entry);
     }

@@ -1,6 +1,7 @@
 package org.library_project.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class Branch {
     private Set<Item> items = new HashSet<>();
 
     @OneToMany(mappedBy = "branch")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Worker> workers = new HashSet<>();
 
     public Branch() {

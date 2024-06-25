@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("audio_items")
-public class ItemAudioController extends GeneralController<ItemAudioService, ItemAudio>{
+@RequestMapping("audio-items")
+public class ItemAudioController extends AbstractController<ItemAudioService, ItemAudio> {
 
 }

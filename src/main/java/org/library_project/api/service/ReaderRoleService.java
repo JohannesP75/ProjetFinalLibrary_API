@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ReaderRoleService extends GeneralService<ReaderRoleRepository, ReaderRole> {
+public class ReaderRoleService extends AbstractService<ReaderRoleRepository, ReaderRole> {
 }

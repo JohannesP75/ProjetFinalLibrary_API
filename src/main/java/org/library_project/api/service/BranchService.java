@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class BranchService extends GeneralService<BranchRepository, Branch> {
+public class BranchService extends AbstractService<BranchRepository, Branch> {
     public Iterable<Worker> getWorkers(final Long id){
         Branch branch=repository.findById(id).orElseThrow(EntityNotFoundException::new);
 

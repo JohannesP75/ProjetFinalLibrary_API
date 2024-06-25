@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("grades")
-public class GradeController extends GeneralController<GradeService, Grade>{
+public class GradeController extends AbstractController<GradeService, Grade> {
     @GetMapping("/{id}/workers")
     public ResponseEntity<Iterable<Worker>> getWorkers(@PathVariable("id") final Long id){
         try{

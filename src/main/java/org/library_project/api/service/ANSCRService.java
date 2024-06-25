@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ANSCRService extends GeneralService<ANSCRRepository, ANSCR> {
+public class ANSCRService extends AbstractService<ANSCRRepository, ANSCR> {
     public Iterable<Audio> getAudios(final Long id){
         ANSCR anscr=repository.findById(id).orElseThrow(EntityNotFoundException::new);
 

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ItemVideoService extends GeneralService<ItemVideoRepository, ItemVideo> {
+public class ItemVideoService extends AbstractService<ItemVideoRepository, ItemVideo> {
 }

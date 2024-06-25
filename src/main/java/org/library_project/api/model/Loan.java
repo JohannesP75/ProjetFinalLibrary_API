@@ -19,13 +19,11 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "is_returned")
+
     private boolean isReturned;
 
-    @Column(name = "date_start")
     private LocalDate dateStart;
 
-    @Column(name = "date_due")
     private LocalDate dateDue;
 
     @ManyToOne

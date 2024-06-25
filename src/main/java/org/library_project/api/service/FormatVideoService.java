@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class FormatVideoService extends GeneralService<FormatVideoRepository, FormatVideo> {
+public class FormatVideoService extends AbstractService<FormatVideoRepository, FormatVideo> {
     public Iterable<ItemVideo> getItemVideos(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getItemsVideo();
     }

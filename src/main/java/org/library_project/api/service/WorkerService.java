@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class WorkerService extends GeneralService<WorkerRepository, Worker> {
+public class WorkerService extends AbstractService<WorkerRepository, Worker> {
     @Override
     public Worker save(Worker entry) {
-        entry.setPassword(SecurityConfig.encoder().encode(entry.getPassword()));
+        entry.setPassword(SecurityConfig.passwordEncoder().encode(entry.getPassword()));
 
         return super.save(entry);
     }

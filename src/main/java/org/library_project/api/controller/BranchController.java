@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("branches")
-public class BranchController extends GeneralController<BranchService, Branch>{
+public class BranchController extends AbstractController<BranchService, Branch> {
     @GetMapping("/{id}/workers")
     public ResponseEntity<Iterable<Worker>> getWorkers(@PathVariable("id") final Long id){
         try{

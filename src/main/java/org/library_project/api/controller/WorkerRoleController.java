@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("worker-roles")
-public class WorkerRoleController extends GeneralController<WorkerRoleService, WorkerRole>{
+public class WorkerRoleController extends AbstractController<WorkerRoleService, WorkerRole> {
 
 }

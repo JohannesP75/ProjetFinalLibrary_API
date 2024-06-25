@@ -26,6 +26,7 @@ public class Dewey {
 
     @NonNull
     @Pattern("^\\d{3}$")
+    @Column(unique = true)
     private String code;
 
     @NonNull

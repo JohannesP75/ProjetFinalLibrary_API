@@ -47,6 +47,5 @@ public class WorkerRole extends UserRole{
     /**
      * Indicates whether this role is tasked with managing the database system (adding and modifying roles)
      */
-
     private boolean systemManagement;
 }

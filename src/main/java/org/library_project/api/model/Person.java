@@ -2,6 +2,7 @@ package org.library_project.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -44,6 +45,7 @@ public abstract class Person implements IPerson {
      */
     @NonNull
     @Length(max = 80, min = 50)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     protected String password;
 
     /**
@@ -71,5 +73,10 @@ public abstract class Person implements IPerson {
     @Override
     public String getUsername() {
         return null;
+    }
+
+    @Override
+    public String[] getAllAuthorities() {
+        return new String[0];
     }
 }

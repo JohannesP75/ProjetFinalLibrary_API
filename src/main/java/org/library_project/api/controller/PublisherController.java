@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("publishers")
-public class PublisherController extends GeneralController<PublisherService, Publisher>{
+public class PublisherController extends AbstractController<PublisherService, Publisher> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<Item>> getItems(@PathVariable("id") final Long id){
         try{

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("anscr")
-public class ANSCRController extends GeneralController<ANSCRService, ANSCR> {
+public class ANSCRController extends AbstractController<ANSCRService, ANSCR> {
     @GetMapping("/{id}/audios")
     public ResponseEntity<Iterable<Audio>> getAudios(@PathVariable("id") final Long id){
         try{

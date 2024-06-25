@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class WorkerRoleService extends GeneralService<WorkerRoleRepository, WorkerRole> {
+public class WorkerRoleService extends AbstractService<WorkerRoleRepository, WorkerRole> {
 }

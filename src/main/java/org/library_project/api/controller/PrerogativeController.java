@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("rights")
-public class PrerogativeController extends GeneralController<PrerogativeService, Prerogative>{
+public class PrerogativeController extends AbstractController<PrerogativeService, Prerogative> {
     @GetMapping("/{id}/roles")
     public ResponseEntity<Iterable<UserRole>> getUserRoles(@PathVariable("id") final Long id){
         try{

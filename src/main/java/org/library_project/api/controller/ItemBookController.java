@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("book_items")
-public class ItemBookController extends GeneralController<ItemBookService, ItemBook>{
+@RequestMapping("book-items")
+public class ItemBookController extends AbstractController<ItemBookService, ItemBook> {
 
 }

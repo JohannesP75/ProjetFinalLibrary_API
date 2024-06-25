@@ -4,10 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 import jakarta.persistence.EntityNotFoundException;
-import org.library_project.api.service.GeneralService;
+import org.library_project.api.service.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +19,22 @@ import java.util.List;
  * @param <TEntity>
  */
 @RequestMapping("")
-public class GeneralController<TService extends GeneralService, TEntity> {
+public class AbstractController<TService extends AbstractService, TEntity> {
     @Autowired
     protected TService service;
+
+    /**
+     * Extract the ID from the JWT token
+     * @param jwt JWT token
+     * @return ID of the user
+     */
+    static public Long extractIdFromJWT(final Jwt jwt){
+        String username=jwt.getSubject();
+        List<String> tokens = List.of(username.split("@"));
+        tokens=List.of(tokens.get(1).split("\\."));
+
+        return Long.parseLong(tokens.get(1));
+    }
 
     /**
      * Returns the number of instances of TENtity

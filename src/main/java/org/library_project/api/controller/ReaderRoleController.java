@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("reader-roles")
-public class ReaderRoleController extends GeneralController<ReaderRoleService, ReaderRole> {
+public class ReaderRoleController extends AbstractController<ReaderRoleService, ReaderRole> {
 }

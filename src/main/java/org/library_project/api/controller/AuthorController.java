@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("authors")
-public class AuthorController extends GeneralController<AuthorService, Author>{
+public class AuthorController extends AbstractController<AuthorService, Author> {
     @GetMapping("/{id}/works")
     public ResponseEntity<Iterable<Document>> getDocuments(@PathVariable("id") final Long id){
         try{

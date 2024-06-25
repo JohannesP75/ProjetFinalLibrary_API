@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("audio_formats")
-public class FormatAudioController extends GeneralController<FormatAudioService, FormatAudio> {
+@RequestMapping("audio-formats")
+public class FormatAudioController extends AbstractController<FormatAudioService, FormatAudio> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemAudio>> getItemAudios(@PathVariable("id") final Long id){
         try{

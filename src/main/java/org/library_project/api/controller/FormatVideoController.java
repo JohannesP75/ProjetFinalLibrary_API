@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("video_formats")
-public class FormatVideoController extends GeneralController<FormatVideoService, FormatVideo> {
+@RequestMapping("video-formats")
+public class FormatVideoController extends AbstractController<FormatVideoService, FormatVideo> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemVideo>> getItemVideos(@PathVariable("id") final Long id){
         try{

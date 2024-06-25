@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("book_formats")
-public class FormatBookController extends GeneralController<FormatBookService, FormatBook> {
+@RequestMapping("book-formats")
+public class FormatBookController extends AbstractController<FormatBookService, FormatBook> {
     @GetMapping("/{id}/items")
     public ResponseEntity<Iterable<ItemBook>> getItemBooks(@PathVariable("id") final Long id){
         try{

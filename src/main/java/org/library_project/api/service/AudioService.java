@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class AudioService extends GeneralService<AudioRepository, Audio> {
+public class AudioService extends AbstractService<AudioRepository, Audio> {
     public Iterable<ItemAudio> getItems(final Long id){
         Audio audio=repository.findById(id).orElseThrow(EntityNotFoundException::new);
 

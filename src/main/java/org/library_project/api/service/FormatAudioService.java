@@ -8,7 +8,7 @@ import org.library_project.api.repository.FormatAudioRepository;
 import org.springframework.stereotype.Service;
 @Data
 @Service
-public class FormatAudioService extends GeneralService<FormatAudioRepository, FormatAudio> {
+public class FormatAudioService extends AbstractService<FormatAudioRepository, FormatAudio> {
     public Iterable<ItemAudio> getItemAudios(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getItemsAudio();
     }

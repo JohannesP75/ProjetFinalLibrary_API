@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class BookService extends GeneralService<BookRepository, Book>{
+public class BookService extends AbstractService<BookRepository, Book> {
     public Iterable<ItemBook> getItems(final Long id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getItems();
     }

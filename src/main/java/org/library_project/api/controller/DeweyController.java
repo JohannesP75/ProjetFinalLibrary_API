@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("dewey")
-public class DeweyController extends GeneralController<DeweyService, Dewey>{
+public class DeweyController extends AbstractController<DeweyService, Dewey> {
 
     @GetMapping("/{id}/books")
     public ResponseEntity<Iterable<Book>> getBooks(@PathVariable("id") final Long id){

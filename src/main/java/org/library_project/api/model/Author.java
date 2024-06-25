@@ -34,31 +34,31 @@ public abstract class Author {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     /**
      * Description of an author
      */
-    private String description;
+    protected String description;
 
     /**
      * Name of an author
      */
     @NonNull
-    private String name;
+    protected String name;
 
     /**
      * Name used in sorting authors
      */
     @Column(name = "sorted_name")
-    private String sortedName;
+    protected String sortedName;
 
     /**
      * Year of birth and creation
      */
     @Column(name = "year_birth")
     @NonNull
-    private Integer yearBirth;
+    protected Integer yearBirth;
 
     /**
      * List of works created by the author
@@ -69,7 +69,7 @@ public abstract class Author {
             joinColumns = { @JoinColumn(name = "author_id") },
             inverseJoinColumns = { @JoinColumn(name = "resource_id") }
     )
-    private Set<Document> documents = new HashSet<>();
+    protected Set<Document> documents = new HashSet<>();
 
     /**
      * List of audio works interpreted by the author
@@ -80,5 +80,5 @@ public abstract class Author {
             joinColumns = { @JoinColumn(name = "author_id") },
             inverseJoinColumns = { @JoinColumn(name = "audio_id") }
     )
-    private Set<Audio> audios = new HashSet<>();
+    protected Set<Audio> audios = new HashSet<>();
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class DeweyService extends GeneralService<DeweyRepository, Dewey> {
+public class DeweyService extends AbstractService<DeweyRepository, Dewey> {
 
     public Iterable<Book> getBooks(final Long id) {
         return repository.findById(id).orElseThrow(EntityNotFoundException::new).getBooks();

@@ -3,6 +3,7 @@ package org.library_project.api.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +23,9 @@ public class ItemAudio extends Item {
 
     /**
      * International Standard Recording Code
+     * <a href="https://isrc.scpp.fr/files/Guide_ISRC_4eme_Edition.pdf">https://isrc.scpp.fr/files/Guide_ISRC_4eme_Edition.pdf</a>
      */
+    @Pattern(regexp = "^[a-zA-Z]{2}-?\\w{3}-?\\d{2}-?\\d{5}$")
     private String isrc;
 
     /**

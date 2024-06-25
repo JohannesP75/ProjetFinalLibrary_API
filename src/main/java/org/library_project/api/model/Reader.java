@@ -5,7 +5,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.library_project.api.config.ReaderRoleAuthority;
+import org.springframework.security.access.prepost.PreAuthorize;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,4 +29,18 @@ public class Reader extends Person {
     @ManyToOne
     @JoinColumn(name = "reader_role_id", nullable = false)
     private ReaderRole role;
+
+    @Override
+    public String[] getAllAuthorities() {
+        ArrayList<String> list=new ArrayList<>();
+
+        if (role.isBorrowItems())list.add(ReaderRoleAuthority.BORROW_ITEMS.toString());
+
+        return list.toArray(new String[0]);
+    }
+
+    @PreAuthorize("hasAuthority('READERS_MANAGEMENT')")
+    public void setRole(ReaderRole role) {
+        this.role = role;
+    }
 }

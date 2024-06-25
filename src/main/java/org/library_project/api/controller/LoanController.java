@@ -7,6 +7,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("loans")
-public class LoanController extends GeneralController<LoanService, Loan>{
-
+public class LoanController extends AbstractController<LoanService, Loan> {
 }

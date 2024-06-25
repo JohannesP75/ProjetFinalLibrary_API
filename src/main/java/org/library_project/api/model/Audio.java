@@ -43,4 +43,10 @@ public class Audio extends Document {
     @ManyToOne
     @JoinColumn(name = "anscr_id", nullable = false)
     private ANSCR anscr;
+
+    /**
+     * MusicBrainz identifiant
+     * <a href="https://musicbrainz.org/">https://musicbrainz.org/</a>
+     */
+    private String musicBrainz;
 }

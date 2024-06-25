@@ -8,6 +8,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.library_project.api.config.WorkerRoleAuthority;
+
+import java.util.ArrayList;
 
 @Entity
 @Setter
@@ -31,4 +34,16 @@ public class Worker extends Person{
     @ManyToOne
     @JoinColumn(name = "worker_role_id", nullable = false)
     private WorkerRole role;
+
+    @Override
+    public String[] getAllAuthorities() {
+        ArrayList<String> list=new ArrayList<>();
+
+        if (role.isHrManagement())list.add(WorkerRoleAuthority.HR_MANAGEMENT.toString());
+        if (role.isReadersManagement())list.add(WorkerRoleAuthority.READERS_MANAGEMENT.toString());
+        if (role.isSystemManagement())list.add(WorkerRoleAuthority.SYSTEM_MANAGEMENT.toString());
+        if (role.isInventoryManagement())list.add(WorkerRoleAuthority.INVENTORY_MANAGEMENT.toString());
+
+        return list.toArray(new String[0]);
+    }
 }

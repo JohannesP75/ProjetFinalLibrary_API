@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class ItemAudioService extends GeneralService<ItemAudioRepository, ItemAudio> {
+public class ItemAudioService extends AbstractService<ItemAudioRepository, ItemAudio> {
 }
